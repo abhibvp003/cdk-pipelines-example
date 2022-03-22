@@ -25,11 +25,11 @@ import { ShellScriptAction } from '@aws-cdk/pipelines';
         actionName: 'GitHub',
         output: sourceArtifact,
         oauthToken: SecretValue.secretsManager('github-token'),
-        owner: 'GITHUB-USER',
-        repo: 'REPO',
+        owner: 'abhibvp003',
+        repo: 'cdk-pipelines-example',
         branch: 'main'
       }),
-
+      // https://github.com/abhibvp003/cdk-pipelines-example.git
       // How it will be built and synthesized
       synthAction: SimpleSynthAction.standardNpmSynth({
         sourceArtifact,
@@ -41,7 +41,7 @@ import { ShellScriptAction } from '@aws-cdk/pipelines';
    });
    // This is where we add the application stages
    const preprod = new CdkpipelinesDemoStage(this, 'PreProd', {
-    env: { account: 'ACCOUNT-NUMBER', region: 'REGION' }
+    env: { account: '442699351453', region: 'eu-west-1' }
   });
 
   // put validations for the stages 
